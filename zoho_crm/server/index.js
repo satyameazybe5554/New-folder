@@ -42,6 +42,10 @@ expressApp.get('/', function (req, res) {
   res.redirect('/app');
 });
 
+expressApp.get('/check', (req, res) => {
+  res.send('Hello World!')
+})
+
 var options = {
   key: fs.readFileSync('./key.pem'),
   cert: fs.readFileSync('./cert.pem')
