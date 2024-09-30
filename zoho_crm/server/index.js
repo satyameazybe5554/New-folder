@@ -51,9 +51,9 @@ var options = {
   cert: fs.readFileSync('./cert.pem')
 };
 
-https.createServer(options, expressApp).listen(port, function () {
-  console.log(chalk.green('Zet running at ht' + 'tps://127.0.0.1:' + port));
-  console.log(chalk.bold.cyan("Note: Please enable the host (https://127.0.0.1:"+port+") in a new tab and authorize the connection by clicking Advanced->Proceed to 127.0.0.1 (unsafe)."));
+https.createServer(options, expressApp).listen(port, '0.0.0.0', function () {
+  console.log(chalk.green('Zet running at https://0.0.0.0:' + port));
+  console.log(chalk.bold.cyan("Note: If required, please open the host (https://0.0.0.0:" + port + ") in a new tab and authorize the connection."));
 }).on('error', function (err) {
   if (err.code === 'EADDRINUSE') {
     console.log(chalk.bold.red(port + " port is already in use"));
